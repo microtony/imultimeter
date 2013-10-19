@@ -33,5 +33,12 @@
 @property (nonatomic, strong) Novocaine *audioManager;
 @property (nonatomic, strong) AudioFileReader *fileReader;
 @property (nonatomic, strong) AudioFileWriter *fileWriter;
+@property (weak, nonatomic) IBOutlet UILabel *lblA;
+@property (weak, nonatomic) IBOutlet UILabel *lblB;
+@property (weak, nonatomic) IBOutlet UILabel *lblC;
+@property (weak, nonatomic) IBOutlet UILabel *lblAFreq;
+@property (weak, nonatomic) IBOutlet UILabel *lblBFreq;
+@property (weak, nonatomic) IBOutlet UILabel *lblCFreq;
+
 
 @end
