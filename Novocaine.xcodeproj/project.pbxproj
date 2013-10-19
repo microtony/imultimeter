@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		9AE2143E1768D0C60068A4DC /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AE2143D1768D0C60068A4DC /* AVFoundation.framework */; };
 		EA0A8A6B1812934300EF3D88 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EA0A8A6A1812934200EF3D88 /* Default-568h@2x.png */; };
+		EA0A8A6D1812EF2200EF3D88 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA0A8A6C1812EF2200EF3D88 /* MediaPlayer.framework */; };
 		FA0B92EA154ACB100079834E /* AudioFileReader.mm in Sources */ = {isa = PBXBuildFile; fileRef = FA0B92E8154ACB100079834E /* AudioFileReader.mm */; };
 		FA2015DE154B02CC00F8D3AC /* TLC.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FA2015DC154B02CC00F8D3AC /* TLC.mp3 */; };
 		FA2015EE154B0DA700F8D3AC /* AudioFileWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = FA2015EC154B0DA700F8D3AC /* AudioFileWriter.m */; };
@@ -31,6 +32,7 @@
 /* Begin PBXFileReference section */
 		9AE2143D1768D0C60068A4DC /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		EA0A8A6A1812934200EF3D88 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		EA0A8A6C1812EF2200EF3D88 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		FA0B92E7154ACB100079834E /* AudioFileReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioFileReader.h; sourceTree = "<group>"; };
 		FA0B92E8154ACB100079834E /* AudioFileReader.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AudioFileReader.mm; sourceTree = "<group>"; };
 		FA2015DC154B02CC00F8D3AC /* TLC.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = TLC.mp3; sourceTree = "<group>"; };
@@ -81,6 +83,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EA0A8A6D1812EF2200EF3D88 /* MediaPlayer.framework in Frameworks */,
 				9AE2143E1768D0C60068A4DC /* AVFoundation.framework in Frameworks */,
 				FA5526EF152A6466003D9601 /* Accelerate.framework in Frameworks */,
 				FA5526F0152A6466003D9601 /* AudioToolbox.framework in Frameworks */,
@@ -117,6 +120,7 @@
 		FA552636152A63A4003D9601 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				EA0A8A6C1812EF2200EF3D88 /* MediaPlayer.framework */,
 				FA5526EB152A6466003D9601 /* Accelerate.framework */,
 				FA55269D152A6405003D9601 /* Accelerate.framework */,
 				FA5526EC152A6466003D9601 /* AudioToolbox.framework */,
@@ -387,6 +391,7 @@
 		FA5526E9152A6452003D9601 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -400,6 +405,7 @@
 		FA5526EA152A6452003D9601 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;

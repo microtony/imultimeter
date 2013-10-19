@@ -39,6 +39,23 @@
 @property (weak, nonatomic) IBOutlet UILabel *lblAFreq;
 @property (weak, nonatomic) IBOutlet UILabel *lblBFreq;
 @property (weak, nonatomic) IBOutlet UILabel *lblCFreq;
+@property (weak, nonatomic) IBOutlet UILabel *lblUnit;
+@property (weak, nonatomic) IBOutlet UILabel *lblReading;
+@property (weak, nonatomic) IBOutlet UIView *viewCalibrate;
+@property (weak, nonatomic) IBOutlet UIButton *btnV15;
+@property (weak, nonatomic) IBOutlet UIButton *btnV30;
+@property (weak, nonatomic) IBOutlet UIButton *btnO201;
+@property (weak, nonatomic) IBOutlet UIButton *btnO102;
 
+@property (weak, nonatomic) IBOutlet UIButton *btnO103;
+@property (weak, nonatomic) IBOutlet UILabel *lblV15;
+@property (weak, nonatomic) IBOutlet UILabel *lblV30;
+@property (weak, nonatomic) IBOutlet UILabel *lblO201;
+@property (weak, nonatomic) IBOutlet UILabel *lblO102;
+@property (weak, nonatomic) IBOutlet UILabel *lblO103;
+@property (weak, nonatomic) IBOutlet UIButton *btnV0;
+@property (weak, nonatomic) IBOutlet UILabel *lblV0;
+@property (weak, nonatomic) IBOutlet UIButton *btnOinf;
+@property (weak, nonatomic) IBOutlet UILabel *lblOinf;
 
 @end

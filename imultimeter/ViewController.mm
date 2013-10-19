@@ -23,6 +23,7 @@
 
 
 #import "ViewController.h"
+#import <MediaPlayer/MPMusicPlayerController.h>
 
 @interface ViewController ()
 
@@ -47,6 +48,12 @@ float f2 = 3914.0;
 float p2 = 0.0;
 float f3 = 1025.0;
 float p3 = 0.0;
+NSUserDefaults* defaults;
+
+float currentReading = 0;
+
+float batt15 = 1.58;
+float batt30 = 3.14;
 
 - (void)dealloc
 {
@@ -62,12 +69,45 @@ float p3 = 0.0;
     avgc = new float[20];
     avgai = avgbi = avgci = 0;
     
-    [NSTimer scheduledTimerWithTimeInterval:0.5f target:self selector:@selector(updateDisplay) userInfo:Nil repeats:YES];
+    [NSTimer scheduledTimerWithTimeInterval:0.2f target:self selector:@selector(updateDisplay) userInfo:Nil repeats:YES];
     
     [self.lblAFreq setText:[NSString stringWithFormat:@"%.0f MHz", frequency]];
     [self.lblBFreq setText:[NSString stringWithFormat:@"%.0f MHz", f2]];
     [self.lblCFreq setText:[NSString stringWithFormat:@"%.0f MHz", f3]];
     
+    MPMusicPlayerController *musicPlayer = [MPMusicPlayerController applicationMusicPlayer];
+    musicPlayer.volume = 0.9;
+    
+    defaults = [NSUserDefaults standardUserDefaults];
+    [self.btnV0 addTarget:self action:@selector(calibrate:) forControlEvents:UIControlEventTouchUpInside];
+    [self.btnV15 addTarget:self action:@selector(calibrate:) forControlEvents:UIControlEventTouchUpInside];
+    [self.btnV30 addTarget:self action:@selector(calibrate:) forControlEvents:UIControlEventTouchUpInside];
+    [self.btnO201 addTarget:self action:@selector(calibrate:) forControlEvents:UIControlEventTouchUpInside];
+    [self.btnO102 addTarget:self action:@selector(calibrate:) forControlEvents:UIControlEventTouchUpInside];
+    [self.btnO103 addTarget:self action:@selector(calibrate:) forControlEvents:UIControlEventTouchUpInside];
+}
+
+- (IBAction)calibrate:(id)sender {
+    switch ([sender tag]) {
+        case 1:
+            [defaults setFloat:currentReading forKey:@"v15"];
+            break;
+        case 2:
+            [defaults setFloat:currentReading forKey:@"v30"];
+            break;
+        case 3:
+            [defaults setFloat:currentReading forKey:@"o201"];
+            break;
+        case 4:
+            [defaults setFloat:currentReading forKey:@"o102"];
+            break;
+        case 5:
+            [defaults setFloat:currentReading forKey:@"o103"];
+            break;
+        case 6:
+            [defaults setFloat:currentReading forKey:@"v0"];
+            break;
+    }
 }
 
 - (void)viewDidUnload
@@ -84,35 +124,6 @@ float p3 = 0.0;
 
     self.ringBuffer = new RingBuffer(32768, 2);
     self.audioManager = [Novocaine audioManager];
-
-    
-    // Basic playthru example
-//    [self.audioManager setInputBlock:^(float *data, UInt32 numFrames, UInt32 numChannels) {
-//        float volume = 0.5;
-//        vDSP_vsmul(data, 1, &volume, data, 1, numFrames*numChannels);
-//        wself.ringBuffer->AddNewInterleavedFloatData(data, numFrames, numChannels);
-//    }];
-//    
-//    
-//    [self.audioManager setOutputBlock:^(float *outData, UInt32 numFrames, UInt32 numChannels) {
-//        wself.ringBuffer->FetchInterleavedData(outData, numFrames, numChannels);
-//    }];
-    
-    
-     // MAKE SOME NOOOOO OIIIISSSEEE
-    // ==================================================
-//     [self.audioManager setOutputBlock:^(float *newdata, UInt32 numFrames, UInt32 thisNumChannels)
-//         {
-//             for (int i = 0; i < numFrames * thisNumChannels; i++) {
-//                 newdata[i] = (rand() % 100) / 100.0f / 2;
-//         }
-//     }];
-    
-    
-    // MEASURE SOME DECIBELS!
-    // ==================================================
-    
-    // SIGNAL GENERATOR!
 
     [self.audioManager setOutputBlock:^(float *data, UInt32 numFrames, UInt32 numChannels)
      {
@@ -203,108 +214,7 @@ float p3 = 0.0;
         delete [] data3;
     }];
     
-    // DALEK VOICE!
-    // (aka Ring Modulator)
-    
-//    [self.audioManager setInputBlock:^(float *data, UInt32 numFrames, UInt32 numChannels)
-//     {
-//         wself.ringBuffer->AddNewInterleavedFloatData(data, numFrames, numChannels);
-//     }];
-//    
-//    __block float frequency = 100.0;
-//    __block float phase = 0.0;
-//    [self.audioManager setOutputBlock:^(float *data, UInt32 numFrames, UInt32 numChannels)
-//     {
-//         wself.ringBuffer->FetchInterleavedData(data, numFrames, numChannels);
-//         
-//         float samplingRate = wself.audioManager.samplingRate;
-//         for (int i=0; i < numFrames; ++i)
-//         {
-//             for (int iChannel = 0; iChannel < numChannels; ++iChannel) 
-//             {
-//                 float theta = phase * M_PI * 2;
-//                 data[i*numChannels + iChannel] *= sin(theta);
-//             }
-//             phase += 1.0 / (samplingRate / frequency);
-//             if (phase > 1.0) phase = -1;
-//         }
-//     }];
-//    
-    
-    // VOICE-MODULATED OSCILLATOR
-    
-//    __block float magnitude = 0.0;
-//    [self.audioManager setInputBlock:^(float *data, UInt32 numFrames, UInt32 numChannels)
-//     {
-//         vDSP_rmsqv(data, 1, &magnitude, numFrames*numChannels);
-//     }];
-//    
-//    __block float frequency = 100.0;
-//    __block float phase = 0.0;
-//    [self.audioManager setOutputBlock:^(float *data, UInt32 numFrames, UInt32 numChannels)
-//     {
-//
-//         printf("Magnitude: %f\n", magnitude);
-//         float samplingRate = wself.audioManager.samplingRate;
-//         for (int i=0; i < numFrames; ++i)
-//         {
-//             for (int iChannel = 0; iChannel < numChannels; ++iChannel) 
-//             {
-//                 float theta = phase * M_PI * 2;
-//                 data[i*numChannels + iChannel] = magnitude*sin(theta);
-//             }
-//             phase += 1.0 / (samplingRate / (frequency));
-//             if (phase > 1.0) phase = -1;
-//         }
-//     }];
-    
-    /*
-    // AUDIO FILE READING OHHH YEAHHHH
-    // ========================================    
-    NSURL *inputFileURL = [[NSBundle mainBundle] URLForResource:@"TLC" withExtension:@"mp3"];        
-
-        self.fileReader = [[AudioFileReader alloc]
-                           initWithAudioFileURL:inputFileURL 
-                           samplingRate:self.audioManager.samplingRate
-                           numChannels:self.audioManager.numOutputChannels];
-    
-    [self.fileReader play];
-    self.fileReader.currentTime = 30.0;
-    
-    
-    [self.audioManager setOutputBlock:^(float *data, UInt32 numFrames, UInt32 numChannels)
-     {
-         [wself.fileReader retrieveFreshAudio:data numFrames:numFrames numChannels:numChannels];
-         NSLog(@"Time: %f", wself.fileReader.currentTime);
-     }
-     */
-    // AUDIO FILE WRITING YEAH!
-    // ========================================    
-//    NSArray *pathComponents = [NSArray arrayWithObjects:
-//                               [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject], 
-//                               @"My Recording.m4a", 
-//                               nil];
-//    NSURL *outputFileURL = [NSURL fileURLWithPathComponents:pathComponents];
-//    NSLog(@"URL: %@", outputFileURL);
-//    
-//    self.fileWriter = [[AudioFileWriter alloc]
-//                       initWithAudioFileURL:outputFileURL 
-//                       samplingRate:self.audioManager.samplingRate
-//                       numChannels:self.audioManager.numInputChannels];
-//    
-//    
-//    __block int counter = 0;
-//    self.audioManager.inputBlock = ^(float *data, UInt32 numFrames, UInt32 numChannels) {
-//        [wself.fileWriter writeNewAudio:data numFrames:numFrames numChannels:numChannels];
-//        counter += 1;
-//        if (counter > 400) { // roughly 5 seconds of audio
-//            wself.audioManager.inputBlock = nil;
-//        }
-//    };
-
-    // START IT UP YO
     [self.audioManager play];
-
 }
 
 - (void)updateDisplay {
@@ -316,7 +226,26 @@ float p3 = 0.0;
     [self.lblB setText:[NSString stringWithFormat:@"%.4f", b/20] ];
     for (int i=0; i<20; i++) c += avgc[i];
     [self.lblC setText:[NSString stringWithFormat:@"%.4f", c/20] ];
-
+    currentReading = c/20;
+    
+    [self.lblV0 setText:[NSString stringWithFormat:@"%.4f", [defaults floatForKey:@"v0"]]];
+    [self.lblV15 setText:[NSString stringWithFormat:@"%.4f", [defaults floatForKey:@"v15"]]];
+    [self.lblV30 setText:[NSString stringWithFormat:@"%.4f", [defaults floatForKey:@"v30"]]];
+    [self.lblO201 setText:[NSString stringWithFormat:@"%.4f", [defaults floatForKey:@"o201"]]];
+    [self.lblO102 setText:[NSString stringWithFormat:@"%.4f", [defaults floatForKey:@"o102"]]];
+    [self.lblO103 setText:[NSString stringWithFormat:@"%.4f", [defaults floatForKey:@"o103"]]];
+    
+    if (a>b/2) {
+        // voltmeter mode
+        float slope = (batt30-batt15)/([defaults floatForKey:@"v30"]-[defaults floatForKey:@"v15"]);
+        float zero = [defaults floatForKey:@"v15"]-(batt30-batt15)/slope;
+        
+        if (currentReading < [defaults floatForKey:@"v0"]*1.1) {
+            [self.lblReading setText:@"0.000"];
+        } else {
+            [self.lblReading setText:[NSString stringWithFormat:@"%.3f", (currentReading-zero)*slope]];
+        }
+    }
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
