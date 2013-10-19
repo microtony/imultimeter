@@ -116,6 +116,13 @@ int mode = 0;
         
     }
 }
+- (IBAction)btnToggleTap:(id)sender {
+if ([self.viewCalibrate isHidden]) {
+  [self.viewCalibrate setHidden:NO];
+} else {
+    [self.viewCalibrate setHidden:YES];
+}
+}
 
 - (void)viewDidUnload
 {
@@ -252,6 +259,12 @@ int mode = 0;
     }
     
     if (mode > 0) {
+        [self.lblUnit setTextColor:[UIColor greenColor]];
+        [self.lblReading setTextColor:[UIColor greenColor]];
+        if ([self.imgBg tag] == 1) {
+            [self.imgBg setImage:[UIImage imageNamed:@"bg_volt.jpg"]];
+            [self.imgBg setTag:0];
+        }
         // voltmeter mode
         [self.lblUnit setText:@"V"];
         float slope = (batt30-batt15)/([defaults floatForKey:@"v30"]-[defaults floatForKey:@"v15"]);
@@ -267,6 +280,13 @@ int mode = 0;
         // V = 0.65 + 2.45 * 1000/(4300 + R)
         // V = 0.65 -> 0.141
         // V =
+        
+        [self.lblUnit setTextColor:[UIColor magentaColor]];
+        [self.lblReading setTextColor:[UIColor magentaColor]];
+        if ([self.imgBg tag] == 0) {
+            [self.imgBg setImage:[UIImage imageNamed:@"bg_ohm.jpg"]];
+            [self.imgBg setTag:1];
+        }
         if (currentReading < [defaults floatForKey:@"oinf"]*1.1) {
             [self.lblReading setText:@"----"];
             [self.lblUnit setText:@"Ω"];
@@ -296,7 +316,7 @@ int mode = 0;
                 [self.lblReading setText:[NSString stringWithFormat:@"%.3f", ohm/1000]];
                 [self.lblUnit setText:@"kΩ"];
             } else {
-                [self.lblReading setText:[NSString stringWithFormat:@"%.0f", ohm]];
+                [self.lblReading setText:[NSString stringWithFormat:@"%.0f", ohm > 0? ohm :0]];
                 [self.lblUnit setText:@"Ω"];
             }
         }

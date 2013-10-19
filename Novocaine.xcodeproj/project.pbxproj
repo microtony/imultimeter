@@ -10,6 +10,8 @@
 		9AE2143E1768D0C60068A4DC /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AE2143D1768D0C60068A4DC /* AVFoundation.framework */; };
 		EA0A8A6B1812934300EF3D88 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EA0A8A6A1812934200EF3D88 /* Default-568h@2x.png */; };
 		EA0A8A6D1812EF2200EF3D88 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA0A8A6C1812EF2200EF3D88 /* MediaPlayer.framework */; };
+		EAC28DDC1813213F00F7330B /* bg_ohm.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EAC28DDA1813213F00F7330B /* bg_ohm.jpg */; };
+		EAC28DDD1813213F00F7330B /* bg_volt.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EAC28DDB1813213F00F7330B /* bg_volt.jpg */; };
 		FA0B92EA154ACB100079834E /* AudioFileReader.mm in Sources */ = {isa = PBXBuildFile; fileRef = FA0B92E8154ACB100079834E /* AudioFileReader.mm */; };
 		FA2015DE154B02CC00F8D3AC /* TLC.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FA2015DC154B02CC00F8D3AC /* TLC.mp3 */; };
 		FA2015EE154B0DA700F8D3AC /* AudioFileWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = FA2015EC154B0DA700F8D3AC /* AudioFileWriter.m */; };
@@ -33,6 +35,8 @@
 		9AE2143D1768D0C60068A4DC /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		EA0A8A6A1812934200EF3D88 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		EA0A8A6C1812EF2200EF3D88 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		EAC28DDA1813213F00F7330B /* bg_ohm.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bg_ohm.jpg; sourceTree = "<group>"; };
+		EAC28DDB1813213F00F7330B /* bg_volt.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bg_volt.jpg; sourceTree = "<group>"; };
 		FA0B92E7154ACB100079834E /* AudioFileReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioFileReader.h; sourceTree = "<group>"; };
 		FA0B92E8154ACB100079834E /* AudioFileReader.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AudioFileReader.mm; sourceTree = "<group>"; };
 		FA2015DC154B02CC00F8D3AC /* TLC.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = TLC.mp3; sourceTree = "<group>"; };
@@ -196,6 +200,8 @@
 				FA5526E0152A6452003D9601 /* ViewController.mm */,
 				FA5526E2152A6452003D9601 /* ViewController_iPhone.xib */,
 				FA5526E5152A6452003D9601 /* ViewController_iPad.xib */,
+				EAC28DDA1813213F00F7330B /* bg_ohm.jpg */,
+				EAC28DDB1813213F00F7330B /* bg_volt.jpg */,
 				FA5526D4152A6452003D9601 /* Supporting Files */,
 			);
 			path = imultimeter;
@@ -267,6 +273,8 @@
 				FA5526D8152A6452003D9601 /* InfoPlist.strings in Resources */,
 				FA5526E4152A6452003D9601 /* ViewController_iPhone.xib in Resources */,
 				FA5526E7152A6452003D9601 /* ViewController_iPad.xib in Resources */,
+				EAC28DDD1813213F00F7330B /* bg_volt.jpg in Resources */,
+				EAC28DDC1813213F00F7330B /* bg_ohm.jpg in Resources */,
 				EA0A8A6B1812934300EF3D88 /* Default-568h@2x.png in Resources */,
 				FA2015DE154B02CC00F8D3AC /* TLC.mp3 in Resources */,
 			);

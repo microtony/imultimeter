@@ -57,5 +57,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *lblV0;
 @property (weak, nonatomic) IBOutlet UIButton *btnOinf;
 @property (weak, nonatomic) IBOutlet UILabel *lblOinf;
+@property (weak, nonatomic) IBOutlet UIButton *btnToggle;
+@property (weak, nonatomic) IBOutlet UIImageView *imgBg;
 
 @end
