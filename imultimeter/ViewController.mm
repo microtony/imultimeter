@@ -55,6 +55,8 @@ float currentReading = 0;
 float batt15 = 1.58;
 float batt30 = 3.14;
 
+int mode = 0;
+
 - (void)dealloc
 {
     delete self.ringBuffer;
@@ -85,6 +87,7 @@ float batt30 = 3.14;
     [self.btnO201 addTarget:self action:@selector(calibrate:) forControlEvents:UIControlEventTouchUpInside];
     [self.btnO102 addTarget:self action:@selector(calibrate:) forControlEvents:UIControlEventTouchUpInside];
     [self.btnO103 addTarget:self action:@selector(calibrate:) forControlEvents:UIControlEventTouchUpInside];
+    [self.btnOinf addTarget:self action:@selector(calibrate:) forControlEvents:UIControlEventTouchUpInside];
 }
 
 - (IBAction)calibrate:(id)sender {
@@ -107,6 +110,10 @@ float batt30 = 3.14;
         case 6:
             [defaults setFloat:currentReading forKey:@"v0"];
             break;
+        case 7:
+            [defaults setFloat:currentReading forKey:@"oinf"];
+            break;
+        
     }
 }
 
@@ -234,9 +241,19 @@ float batt30 = 3.14;
     [self.lblO201 setText:[NSString stringWithFormat:@"%.4f", [defaults floatForKey:@"o201"]]];
     [self.lblO102 setText:[NSString stringWithFormat:@"%.4f", [defaults floatForKey:@"o102"]]];
     [self.lblO103 setText:[NSString stringWithFormat:@"%.4f", [defaults floatForKey:@"o103"]]];
+    [self.lblOinf setText:[NSString stringWithFormat:@"%.4f", [defaults floatForKey:@"oinf"]]];
     
-    if (a>b/2) {
+    if (a>b*2.1) {
+        mode++;
+        mode = mode > 3 ? 3 : mode;
+    } else {
+        mode--;
+        mode = mode < -3 ? -3 : mode;
+    }
+    
+    if (mode > 0) {
         // voltmeter mode
+        [self.lblUnit setText:@"V"];
         float slope = (batt30-batt15)/([defaults floatForKey:@"v30"]-[defaults floatForKey:@"v15"]);
         float zero = [defaults floatForKey:@"v15"]-(batt30-batt15)/slope;
         
@@ -245,13 +262,51 @@ float batt30 = 3.14;
         } else {
             [self.lblReading setText:[NSString stringWithFormat:@"%.3f", (currentReading-zero)*slope]];
         }
+    } else {
+        //Ω mode
+        // V = 0.65 + 2.45 * 1000/(4300 + R)
+        // V = 0.65 -> 0.141
+        // V =
+        if (currentReading < [defaults floatForKey:@"oinf"]*1.1) {
+            [self.lblReading setText:@"----"];
+            [self.lblUnit setText:@"Ω"];
+        } else {
+            // y = -e^mx  + 1
+            // 1 - y= e^mx
+            // ln (1-y) = mx
+            // m = ln(1-y)/x
+            
+            // y = 0.21 + 1000/14300
+            float m;
+            if (currentReading < [defaults floatForKey:@"o103"]) {
+                m = 0.210 + (0.28-0.21) * pow((currentReading-[defaults floatForKey:@"oinf"]) / ([defaults floatForKey:@"o103"]-[defaults floatForKey:@"oinf"]), 0.7);
+            } else if (currentReading < [defaults floatForKey:@"o102"]) {
+                m = 0.280 + (0.3987-0.280) * pow((currentReading-[defaults floatForKey:@"o103"]) / ([defaults floatForKey:@"o102"]-[defaults floatForKey:@"o103"]), 0.7);
+            } else {
+                m = 0.3987 + (0.44255-0.3987) * pow((currentReading-[defaults floatForKey:@"o102"]) / ([defaults floatForKey:@"o201"]-[defaults floatForKey:@"o102"]), 0.58);
+            }
+            float ohm = 1000/(m-0.21) - 4300;
+            if (ohm >= 100000) {
+                [self.lblReading setText:[NSString stringWithFormat:@"%.1f", ohm/1000]];
+                [self.lblUnit setText:@"kΩ"];
+            } else if (ohm >= 10000) {
+                [self.lblReading setText:[NSString stringWithFormat:@"%.2f", ohm/1000]];
+                [self.lblUnit setText:@"kΩ"];
+            } else if (ohm > 2000) {
+                [self.lblReading setText:[NSString stringWithFormat:@"%.3f", ohm/1000]];
+                [self.lblUnit setText:@"kΩ"];
+            } else {
+                [self.lblReading setText:[NSString stringWithFormat:@"%.0f", ohm]];
+                [self.lblUnit setText:@"Ω"];
+            }
+        }
     }
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
-        return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
+        return (interfaceOrientation == UIInterfaceOrientationPortrait);
     } else {
         return YES;
     }
