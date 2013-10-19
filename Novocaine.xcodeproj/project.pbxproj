@@ -8,24 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		9AE2143E1768D0C60068A4DC /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AE2143D1768D0C60068A4DC /* AVFoundation.framework */; };
-		FA0B92E9154ACB100079834E /* AudioFileReader.mm in Sources */ = {isa = PBXBuildFile; fileRef = FA0B92E8154ACB100079834E /* AudioFileReader.mm */; };
+		EA0A8A6B1812934300EF3D88 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EA0A8A6A1812934200EF3D88 /* Default-568h@2x.png */; };
 		FA0B92EA154ACB100079834E /* AudioFileReader.mm in Sources */ = {isa = PBXBuildFile; fileRef = FA0B92E8154ACB100079834E /* AudioFileReader.mm */; };
-		FA2015DD154B02CC00F8D3AC /* TLC.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FA2015DC154B02CC00F8D3AC /* TLC.mp3 */; };
 		FA2015DE154B02CC00F8D3AC /* TLC.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FA2015DC154B02CC00F8D3AC /* TLC.mp3 */; };
-		FA2015ED154B0DA700F8D3AC /* AudioFileWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = FA2015EC154B0DA700F8D3AC /* AudioFileWriter.m */; };
 		FA2015EE154B0DA700F8D3AC /* AudioFileWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = FA2015EC154B0DA700F8D3AC /* AudioFileWriter.m */; };
-		FA55267E152A63B6003D9601 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA55265D152A63AE003D9601 /* Cocoa.framework */; };
-		FA552684152A63B6003D9601 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = FA552682152A63B6003D9601 /* InfoPlist.strings */; };
-		FA552686152A63B6003D9601 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FA552685152A63B6003D9601 /* main.m */; };
-		FA55268A152A63B6003D9601 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = FA552688152A63B6003D9601 /* Credits.rtf */; };
-		FA55268D152A63B6003D9601 /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = FA55268C152A63B6003D9601 /* AppDelegate.mm */; };
-		FA552690152A63B6003D9601 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA55268E152A63B6003D9601 /* MainMenu.xib */; };
-		FA55269A152A63F6003D9601 /* Novocaine.m in Sources */ = {isa = PBXBuildFile; fileRef = FA552696152A63F6003D9601 /* Novocaine.m */; };
-		FA55269C152A63F6003D9601 /* RingBuffer.mm in Sources */ = {isa = PBXBuildFile; fileRef = FA552698152A63F6003D9601 /* RingBuffer.mm */; };
-		FA5526A5152A640E003D9601 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA55269D152A6405003D9601 /* Accelerate.framework */; };
-		FA5526A6152A640E003D9601 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA55269E152A6405003D9601 /* AudioToolbox.framework */; };
-		FA5526A7152A640E003D9601 /* AudioUnit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA55269F152A6405003D9601 /* AudioUnit.framework */; };
-		FA5526A8152A640E003D9601 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA5526A0152A6405003D9601 /* CoreAudio.framework */; };
 		FA5526D0152A6452003D9601 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA552637152A63A4003D9601 /* UIKit.framework */; };
 		FA5526D1152A6452003D9601 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA552639152A63A4003D9601 /* Foundation.framework */; };
 		FA5526D2152A6452003D9601 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA55263B152A63A4003D9601 /* CoreGraphics.framework */; };
@@ -44,6 +30,7 @@
 
 /* Begin PBXFileReference section */
 		9AE2143D1768D0C60068A4DC /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		EA0A8A6A1812934200EF3D88 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		FA0B92E7154ACB100079834E /* AudioFileReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioFileReader.h; sourceTree = "<group>"; };
 		FA0B92E8154ACB100079834E /* AudioFileReader.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AudioFileReader.mm; sourceTree = "<group>"; };
 		FA2015DC154B02CC00F8D3AC /* TLC.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = TLC.mp3; sourceTree = "<group>"; };
@@ -56,7 +43,6 @@
 		FA552660152A63AE003D9601 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		FA552661152A63AE003D9601 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		FA552662152A63AE003D9601 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		FA55267C152A63B6003D9601 /* Novocaine Mac Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Novocaine Mac Example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA552681152A63B6003D9601 /* Novocaine Mac Example-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Novocaine Mac Example-Info.plist"; sourceTree = "<group>"; };
 		FA552683152A63B6003D9601 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		FA552685152A63B6003D9601 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -91,18 +77,6 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		FA552679152A63B6003D9601 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				FA5526A5152A640E003D9601 /* Accelerate.framework in Frameworks */,
-				FA5526A6152A640E003D9601 /* AudioToolbox.framework in Frameworks */,
-				FA5526A7152A640E003D9601 /* AudioUnit.framework in Frameworks */,
-				FA5526A8152A640E003D9601 /* CoreAudio.framework in Frameworks */,
-				FA55267E152A63B6003D9601 /* Cocoa.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		FA5526CB152A6451003D9601 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -123,9 +97,10 @@
 		FA552628152A63A4003D9601 = {
 			isa = PBXGroup;
 			children = (
+				EA0A8A6A1812934200EF3D88 /* Default-568h@2x.png */,
 				FA552694152A63F6003D9601 /* Novocaine */,
 				FA55267F152A63B6003D9601 /* Novocaine Mac Example */,
-				FA5526D3152A6452003D9601 /* Novocaine iOS Example */,
+				FA5526D3152A6452003D9601 /* imultimeter */,
 				FA552636152A63A4003D9601 /* Frameworks */,
 				FA552634152A63A4003D9601 /* Products */,
 			);
@@ -134,7 +109,6 @@
 		FA552634152A63A4003D9601 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				FA55267C152A63B6003D9601 /* Novocaine Mac Example.app */,
 				FA5526CE152A6451003D9601 /* Novocaine iOS Example.app */,
 			);
 			name = Products;
@@ -209,7 +183,7 @@
 			path = Novocaine;
 			sourceTree = "<group>";
 		};
-		FA5526D3152A6452003D9601 /* Novocaine iOS Example */ = {
+		FA5526D3152A6452003D9601 /* imultimeter */ = {
 			isa = PBXGroup;
 			children = (
 				FA5526DC152A6452003D9601 /* AppDelegate.h */,
@@ -220,7 +194,7 @@
 				FA5526E5152A6452003D9601 /* ViewController_iPad.xib */,
 				FA5526D4152A6452003D9601 /* Supporting Files */,
 			);
-			path = "Novocaine iOS Example";
+			path = imultimeter;
 			sourceTree = "<group>";
 		};
 		FA5526D4152A6452003D9601 /* Supporting Files */ = {
@@ -238,23 +212,6 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		FA55267B152A63B6003D9601 /* Novocaine Mac Example */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = FA552691152A63B6003D9601 /* Build configuration list for PBXNativeTarget "Novocaine Mac Example" */;
-			buildPhases = (
-				FA552678152A63B6003D9601 /* Sources */,
-				FA552679152A63B6003D9601 /* Frameworks */,
-				FA55267A152A63B6003D9601 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "Novocaine Mac Example";
-			productName = "Novocaine Mac Example";
-			productReference = FA55267C152A63B6003D9601 /* Novocaine Mac Example.app */;
-			productType = "com.apple.product-type.application";
-		};
 		FA5526CD152A6451003D9601 /* Novocaine iOS Example */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = FA5526E8152A6452003D9601 /* Build configuration list for PBXNativeTarget "Novocaine iOS Example" */;
@@ -293,24 +250,12 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				FA55267B152A63B6003D9601 /* Novocaine Mac Example */,
 				FA5526CD152A6451003D9601 /* Novocaine iOS Example */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		FA55267A152A63B6003D9601 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				FA552684152A63B6003D9601 /* InfoPlist.strings in Resources */,
-				FA55268A152A63B6003D9601 /* Credits.rtf in Resources */,
-				FA552690152A63B6003D9601 /* MainMenu.xib in Resources */,
-				FA2015DD154B02CC00F8D3AC /* TLC.mp3 in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		FA5526CC152A6451003D9601 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -318,6 +263,7 @@
 				FA5526D8152A6452003D9601 /* InfoPlist.strings in Resources */,
 				FA5526E4152A6452003D9601 /* ViewController_iPhone.xib in Resources */,
 				FA5526E7152A6452003D9601 /* ViewController_iPad.xib in Resources */,
+				EA0A8A6B1812934300EF3D88 /* Default-568h@2x.png in Resources */,
 				FA2015DE154B02CC00F8D3AC /* TLC.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -325,19 +271,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		FA552678152A63B6003D9601 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				FA552686152A63B6003D9601 /* main.m in Sources */,
-				FA55268D152A63B6003D9601 /* AppDelegate.mm in Sources */,
-				FA55269A152A63F6003D9601 /* Novocaine.m in Sources */,
-				FA55269C152A63F6003D9601 /* RingBuffer.mm in Sources */,
-				FA0B92E9154ACB100079834E /* AudioFileReader.mm in Sources */,
-				FA2015ED154B0DA700F8D3AC /* AudioFileWriter.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		FA5526CA152A6451003D9601 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -451,58 +384,14 @@
 			};
 			name = Release;
 		};
-		FA552692152A63B6003D9601 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
-				CLANG_ENABLE_OBJC_ARC = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SYSTEM_APPS_DIR)/Xcode.app/Contents/Developer/Library/Frameworks\"",
-				);
-				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Novocaine Mac Example/Novocaine Mac Example-Prefix.pch";
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				INFOPLIST_FILE = "Novocaine Mac Example/Novocaine Mac Example-Info.plist";
-				MACOSX_DEPLOYMENT_TARGET = 10.7;
-				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = macosx;
-				WRAPPER_EXTENSION = app;
-			};
-			name = Debug;
-		};
-		FA552693152A63B6003D9601 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
-				CLANG_ENABLE_OBJC_ARC = YES;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SYSTEM_APPS_DIR)/Xcode.app/Contents/Developer/Library/Frameworks\"",
-				);
-				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Novocaine Mac Example/Novocaine Mac Example-Prefix.pch";
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				INFOPLIST_FILE = "Novocaine Mac Example/Novocaine Mac Example-Info.plist";
-				MACOSX_DEPLOYMENT_TARGET = 10.7;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = macosx;
-				WRAPPER_EXTENSION = app;
-			};
-			name = Release;
-		};
 		FA5526E9152A6452003D9601 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Novocaine iOS Example/Novocaine iOS Example-Prefix.pch";
-				INFOPLIST_FILE = "Novocaine iOS Example/Novocaine iOS Example-Info.plist";
+				GCC_PREFIX_HEADER = imultimeter/imultimeter.pch;
+				INFOPLIST_FILE = imultimeter/imultimeter.plist;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -514,8 +403,8 @@
 				CLANG_ENABLE_OBJC_ARC = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Novocaine iOS Example/Novocaine iOS Example-Prefix.pch";
-				INFOPLIST_FILE = "Novocaine iOS Example/Novocaine iOS Example-Info.plist";
+				GCC_PREFIX_HEADER = imultimeter/imultimeter.pch;
+				INFOPLIST_FILE = imultimeter/imultimeter.plist;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -529,15 +418,6 @@
 			buildConfigurations = (
 				FA552652152A63A5003D9601 /* Debug */,
 				FA552653152A63A5003D9601 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		FA552691152A63B6003D9601 /* Build configuration list for PBXNativeTarget "Novocaine Mac Example" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				FA552692152A63B6003D9601 /* Debug */,
-				FA552693152A63B6003D9601 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

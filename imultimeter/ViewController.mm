@@ -84,38 +84,50 @@
     
     // MEASURE SOME DECIBELS!
     // ==================================================
-//    __block float dbVal = 0.0;
-//    [self.audioManager setInputBlock:^(float *data, UInt32 numFrames, UInt32 numChannels) {
-//
-//        vDSP_vsq(data, 1, data, 1, numFrames*numChannels);
-//        float meanVal = 0.0;
-//        vDSP_meanv(data, 1, &meanVal, numFrames*numChannels);
-//
-//        float one = 1.0;
-//        vDSP_vdbcon(&meanVal, 1, &one, &meanVal, 1, 1, 0);
-//        dbVal = dbVal + 0.2*(meanVal - dbVal);
-//        printf("Decibel level: %f\n", dbVal);
-//        
-//    }];
+    __block float dbVal = 0.0;
+    [self.audioManager setInputBlock:^(float *data, UInt32 numFrames, UInt32 numChannels) {
+
+        vDSP_vsq(data, 1, data, 1, numFrames*numChannels);
+        float meanVal = 0.0;
+        vDSP_meanv(data, 1, &meanVal, numFrames*numChannels);
+
+        float one = 1.0;
+        vDSP_vdbcon(&meanVal, 1, &one, &meanVal, 1, 1, 0);
+        dbVal = dbVal + 0.2*(meanVal - dbVal);
+        printf("Decibel level: %f\n", dbVal);
+        
+    }];
     
     // SIGNAL GENERATOR!
-//    __block float frequency = 2000.0;
-//    __block float phase = 0.0;
-//    [self.audioManager setOutputBlock:^(float *data, UInt32 numFrames, UInt32 numChannels)
-//     {
-//
-//         float samplingRate = wself.audioManager.samplingRate;
-//         for (int i=0; i < numFrames; ++i)
-//         {
-//             for (int iChannel = 0; iChannel < numChannels; ++iChannel) 
-//             {
-//                 float theta = phase * M_PI * 2;
-//                 data[i*numChannels + iChannel] = sin(theta);
-//             }
-//             phase += 1.0 / (samplingRate / frequency);
-//             if (phase > 1.0) phase = -1;
-//         }
-//     }];
+    __block float frequency = 379.0;
+    __block float phase = 0.0;
+    __block float f2 = 3914.0;
+    __block float p2 = 0.0;
+    __block float f3 = 1025.0;
+    __block float p3 = 0.0;
+    
+    [self.audioManager setOutputBlock:^(float *data, UInt32 numFrames, UInt32 numChannels)
+     {
+
+         float samplingRate = wself.audioManager.samplingRate;
+         for (int i=0; i < numFrames; ++i)
+         {
+             
+                 float theta = phase * M_PI * 2;
+                 float theta2 = p2 * M_PI * 2;
+                 float theta3 = p3 * M_PI * 2;
+                 data[i*numChannels ] =  (sin(theta)+sin(theta2))/2;
+                 data[i*numChannels + 1] =  sin(theta3);
+                 
+             phase += 1.0 / (samplingRate / frequency);
+             if (phase > 1.0) phase = -1;
+             p2 += 1.0 / (samplingRate / f2);
+             if (p2 > 1.0) p2 = -1;
+             
+             p3 += 1.0 / (samplingRate / f3);
+             if (p3 > 1.0) p3 = -1;
+         }
+     }];
     
     
     // DALEK VOICE!
@@ -173,7 +185,7 @@
 //         }
 //     }];
     
-    
+    /*
     // AUDIO FILE READING OHHH YEAHHHH
     // ========================================    
     NSURL *inputFileURL = [[NSBundle mainBundle] URLForResource:@"TLC" withExtension:@"mp3"];        
@@ -191,8 +203,8 @@
      {
          [wself.fileReader retrieveFreshAudio:data numFrames:numFrames numChannels:numChannels];
          NSLog(@"Time: %f", wself.fileReader.currentTime);
-     }];
-    
+     }
+     */
     // AUDIO FILE WRITING YEAH!
     // ========================================    
 //    NSArray *pathComponents = [NSArray arrayWithObjects:
