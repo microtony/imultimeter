@@ -12,6 +12,7 @@
 		EA0A8A6D1812EF2200EF3D88 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA0A8A6C1812EF2200EF3D88 /* MediaPlayer.framework */; };
 		EAC28DDC1813213F00F7330B /* bg_ohm.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EAC28DDA1813213F00F7330B /* bg_ohm.jpg */; };
 		EAC28DDD1813213F00F7330B /* bg_volt.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EAC28DDB1813213F00F7330B /* bg_volt.jpg */; };
+		EAC28DDF18137B1500F7330B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EAC28DDE18137B1500F7330B /* Images.xcassets */; };
 		FA0B92EA154ACB100079834E /* AudioFileReader.mm in Sources */ = {isa = PBXBuildFile; fileRef = FA0B92E8154ACB100079834E /* AudioFileReader.mm */; };
 		FA2015DE154B02CC00F8D3AC /* TLC.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FA2015DC154B02CC00F8D3AC /* TLC.mp3 */; };
 		FA2015EE154B0DA700F8D3AC /* AudioFileWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = FA2015EC154B0DA700F8D3AC /* AudioFileWriter.m */; };
@@ -37,6 +38,7 @@
 		EA0A8A6C1812EF2200EF3D88 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		EAC28DDA1813213F00F7330B /* bg_ohm.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bg_ohm.jpg; sourceTree = "<group>"; };
 		EAC28DDB1813213F00F7330B /* bg_volt.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bg_volt.jpg; sourceTree = "<group>"; };
+		EAC28DDE18137B1500F7330B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = "Novocaine iOS Example/Images.xcassets"; sourceTree = "<group>"; };
 		FA0B92E7154ACB100079834E /* AudioFileReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioFileReader.h; sourceTree = "<group>"; };
 		FA0B92E8154ACB100079834E /* AudioFileReader.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AudioFileReader.mm; sourceTree = "<group>"; };
 		FA2015DC154B02CC00F8D3AC /* TLC.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = TLC.mp3; sourceTree = "<group>"; };
@@ -104,6 +106,7 @@
 		FA552628152A63A4003D9601 = {
 			isa = PBXGroup;
 			children = (
+				EAC28DDE18137B1500F7330B /* Images.xcassets */,
 				EA0A8A6A1812934200EF3D88 /* Default-568h@2x.png */,
 				FA552694152A63F6003D9601 /* Novocaine */,
 				FA55267F152A63B6003D9601 /* Novocaine Mac Example */,
@@ -222,9 +225,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		FA5526CD152A6451003D9601 /* Novocaine iOS Example */ = {
+		FA5526CD152A6451003D9601 /* imultimeter */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = FA5526E8152A6452003D9601 /* Build configuration list for PBXNativeTarget "Novocaine iOS Example" */;
+			buildConfigurationList = FA5526E8152A6452003D9601 /* Build configuration list for PBXNativeTarget "imultimeter" */;
 			buildPhases = (
 				FA5526CA152A6451003D9601 /* Sources */,
 				FA5526CB152A6451003D9601 /* Frameworks */,
@@ -234,7 +237,7 @@
 			);
 			dependencies = (
 			);
-			name = "Novocaine iOS Example";
+			name = imultimeter;
 			productName = "Novocaine iOS Example";
 			productReference = FA5526CE152A6451003D9601 /* Novocaine iOS Example.app */;
 			productType = "com.apple.product-type.application";
@@ -260,7 +263,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				FA5526CD152A6451003D9601 /* Novocaine iOS Example */,
+				FA5526CD152A6451003D9601 /* imultimeter */,
 			);
 		};
 /* End PBXProject section */
@@ -271,6 +274,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA5526D8152A6452003D9601 /* InfoPlist.strings in Resources */,
+				EAC28DDF18137B1500F7330B /* Images.xcassets in Resources */,
 				FA5526E4152A6452003D9601 /* ViewController_iPhone.xib in Resources */,
 				FA5526E7152A6452003D9601 /* ViewController_iPad.xib in Resources */,
 				EAC28DDD1813213F00F7330B /* bg_volt.jpg in Resources */,
@@ -400,6 +404,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD)";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -414,6 +420,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD)";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -436,7 +444,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		FA5526E8152A6452003D9601 /* Build configuration list for PBXNativeTarget "Novocaine iOS Example" */ = {
+		FA5526E8152A6452003D9601 /* Build configuration list for PBXNativeTarget "imultimeter" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				FA5526E9152A6452003D9601 /* Debug */,

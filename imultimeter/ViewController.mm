@@ -149,7 +149,7 @@ if ([self.viewCalibrate isHidden]) {
                  float theta = phase * M_PI * 2;
                  float theta2 = p2 * M_PI * 2;
                  float theta3 = p3 * M_PI * 2;
-                 data[i*numChannels ] =  volA*sin(theta) + volB*sin(theta2);
+                 data[i*numChannels] =  volA*sin(theta) + volB*sin(theta2);
                  data[i*numChannels + 1] =  volC*sin(theta3);
                  
              phase += 1.0 / (samplingRate / frequency);
